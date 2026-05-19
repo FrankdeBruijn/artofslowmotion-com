@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Diensten">
+  <div class="page-header">
+    <h1>Diensten</h1>
+  </div>
+
+  <div class="section">
+    <div class="services">
+      <div class="service">
+        <span class="num">01</span>
+        <div>
+          <h2>High Speed Camera</h2>
+          <p>Phantom Flex 2K operator voor film, TV en commercial. Op set inzetbaar voor shots tot 2570 fps. Eigen apparatuur beschikbaar.</p>
+        </div>
+      </div>
+      <div class="service">
+        <span class="num">02</span>
+        <div>
+          <h2>Qtake Operator & DIT</h2>
+          <p>VTR en data management op set. Snelle en flexibele inzet met eigen Qtake-setup. Ondersteuning voor grote producties.</p>
+        </div>
+      </div>
+      <div class="service">
+        <span class="num">03</span>
+        <div>
+          <h2>Video Editing & Color Grading</h2>
+          <p>Post-productie in DaVinci Resolve Studio en Fusion Studio. Van ruwe beelden naar afgewerkt eindproduct.</p>
+        </div>
+      </div>
+      <div class="service">
+        <span class="num">04</span>
+        <div>
+          <h2>Drone Piloot</h2>
+          <p>Licenties A1-A3, A2 en SPECIFIC. DJI Mavic 3 uitgerust. Samenwerking met Drone Solutions voor complexe opdrachten. FPV, kartering en beveiliging.</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="/contact" class="cta">Neem contact op &rarr;</a>
+  </div>
+</Layout>
+
+<style>
+  .services { display: flex; flex-direction: column; gap: 0; }
+
+  .service {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    padding: 3rem 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .num {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    padding-top: 0.4rem;
+    min-width: 30px;
+  }
+
+  .service h2 {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .service p { color: var(--muted); max-width: 600px; }
+
+  .cta {
+    display: inline-block;
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .cta:hover { color: var(--accent); }
+</style>

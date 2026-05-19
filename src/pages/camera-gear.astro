@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Camera Gear">
+  <div class="page-header">
+    <h1>Camera Gear</h1>
+  </div>
+
+  <div class="section">
+    <div class="gear-list">
+      <div class="gear-item">
+        <div class="gear-header">
+          <h2>Phantom Flex 2K</h2>
+          <span class="tag">High Speed</span>
+        </div>
+        <p>De industriestandaard voor high-speed cinematografie. Schiet tot 2570 fps in 2K resolutie, 1456 fps in full 2K. Gebruikt door de grootste producties ter wereld voor extreme slowmotion shots.</p>
+        <ul>
+          <li>Resolutie: 2048 × 1952 px</li>
+          <li>Max framerate: 2570 fps (1080p), 1456 fps (2K)</li>
+          <li>Global shutter — geen rolling shutter artefacten</li>
+        </ul>
+      </div>
+
+      <div class="gear-item">
+        <div class="gear-header">
+          <h2>DJI Mavic 3 Pro</h2>
+          <span class="tag">Drone</span>
+        </div>
+        <p>Professionele drone voor cinematografie en fotografie. Triple-camera systeem met Hasselblad-kleurscientie.</p>
+        <ul>
+          <li>4/3 CMOS Hasselblad sensor</li>
+          <li>5.1K video, Apple ProRes beschikbaar</li>
+          <li>46 minuten vluchttijd</li>
+        </ul>
+      </div>
+
+      <div class="gear-item">
+        <div class="gear-header">
+          <h2>DJI Mavic 2 Enterprise Advanced</h2>
+          <span class="tag">Thermografie</span>
+        </div>
+        <p>Drone met geïntegreerde thermografische camera voor inspecties vanuit de lucht.</p>
+        <ul>
+          <li>640 × 512 px radiometrische FLIR sensor</li>
+          <li>Zichtbaar licht + thermografie in één systeem</li>
+          <li>Inspectierapporten direct uit de software</li>
+        </ul>
+      </div>
+
+      <div class="gear-item">
+        <div class="gear-header">
+          <h2>DaVinci Resolve Studio</h2>
+          <span class="tag">Post-productie</span>
+        </div>
+        <p>Volledige post-productie in DaVinci Resolve Studio inclusief Fusion Studio voor VFX en motion graphics.</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .gear-list { display: flex; flex-direction: column; gap: 0; }
+
+  .gear-item {
+    padding: 3rem 0;
+    border-bottom: 1px solid #1a1a1a;
+    max-width: 700px;
+  }
+
+  .gear-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .gear-header h2 {
+    font-size: 1.3rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+  }
+
+  .tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid #333;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  .gear-item p { color: var(--muted); margin-bottom: 1rem; }
+
+  .gear-item ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .gear-item li {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .gear-item li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #333;
+  }
+</style>

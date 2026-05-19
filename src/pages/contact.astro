@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact">
+  <div class="page-header">
+    <h1>Contact</h1>
+  </div>
+
+  <div class="section contact">
+    <div>
+      <p class="intro">Voor producties, opdrachten of vragen — neem direct contact op.</p>
+      <ul class="info">
+        <li><span>Frank de Bruijn</span></li>
+        <li><a href="tel:+31612415418">+31 (0)6 12 41 54 18</a></li>
+        <li><a href="mailto:frank@artofslowmotion.com">frank@artofslowmotion.com</a></li>
+        <li>Handel, Noord-Brabant</li>
+      </ul>
+      <div class="social-links">
+        <a href="https://vimeo.com/artofslowmotion" target="_blank">Vimeo</a>
+        <a href="https://www.instagram.com/frankdebruijnfilmmaker" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/company/artofslowmotion" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .intro { color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px; }
+
+  .info { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .info li { font-size: 1rem; color: var(--muted); }
+  .info span { color: var(--accent); font-weight: 400; }
+  .info a { color: var(--muted); transition: color 0.2s; }
+  .info a:hover { color: var(--accent); }
+
+  .social-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+
+  .social-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+
+  .social-links a:hover { color: var(--accent); }
+</style>
