@@ -1,74 +1,203 @@
 ---
 import Layout from '../layouts/Layout.astro';
----
-<Layout title="Portfolio">
-  <section class="hero">
-    <h1>Phantom Operator</h1>
-    <p>High Speed Cinematografie</p>
-  </section>
 
-  <section class="portfolio-grid">
-    {Array.from({length: 12}).map((_, i) => (
-      <div class="portfolio-item">
-        <div class="placeholder">
-          <span>Project {i + 1}</span>
+const videos = [
+  { id: '769326455', thumb: '015c01_8cc38a144c754499b9a69fd2ae07b1f7~mv2.jpg', title: 'Hoffmann Getranke – High Speed Operator' },
+  { id: '769338059', thumb: '015c01_e2bc9fee0f054e10ad74535f6974c71a~mv2.jpg', title: 'Welcher Joghurt by Jorrit Stollman' },
+  { id: '769331652', thumb: '015c01_764b78168db747239d464abd580a3190~mv2.jpg', title: 'Guylian by Jorrit Stollman' },
+  { id: '522667927', thumb: '015c01_413e45c3ab034b219f89f7f5abcbb4a3~mv2.jpg', title: 'The Magician – Joyce' },
+  { id: '769337956', thumb: '015c01_99eb5619f7254cf1b11406a347c0fadc~mv2.jpg', title: 'Quaker CruesLi by Jorrit Stollman' },
+  { id: '522660498', thumb: '015c01_9d2bafe77e3c455eab22f6b6dfda01cd~mv2.jpg', title: 'Whiskey by Jorrit Stollman' },
+  { id: '769337923', thumb: '015c01_23766277c9fc44d8ae1c8f7d8e101c7d~mv2.jpg', title: 'The Art of Chocolate by Jorrit Stollman' },
+  { id: '522660418', thumb: '015c01_bf090dc9f6c64251af2c4bdc4a70f207~mv2.jpg', title: 'Lamar CookingCream by Jorrit Stollman' },
+  { id: '522663534', thumb: '015c01_ce85343d8cac4fba832c38a284862242~mv2.jpg', title: 'SHAKLEE by Jorrit Stollman' },
+  { id: '769333929', thumb: '015c01_c91838abc64d4709b98b0143ee652586~mv2.jpg', title: 'Welcher Joghurt 2 by Jorrit Stollman' },
+  { id: '522660321', thumb: '015c01_36f9a8232c8f4b2dbf68531a12ec5c66~mv2.jpg', title: 'Lamar WhippingCream by Jorrit Stollman' },
+  { id: '522660251', thumb: '015c01_92e1104c0fce4ee29eec1f46ec2f4028~mv2.jpg', title: 'Sligro ZIN by Jorrit Stollman' },
+];
+
+const CDN = 'https://static.wixstatic.com/media/';
+const thumbUrl = (file: string) => `${CDN}${file}/v1/fill/w_624,h_352,q_90,enc_avif,quality_auto/${file}`;
+---
+
+<Layout title="Portfolio">
+  <div class="page-title">
+    <h1>phantom operator</h1>
+  </div>
+
+  <div class="grid" id="portfolioGrid">
+    {videos.map((v, i) => (
+      <button
+        class="item"
+        data-id={v.id ?? ''}
+        data-title={v.title}
+        aria-label={v.title}
+      >
+        <img
+          src={thumbUrl(v.thumb)}
+          alt={v.title}
+          loading={i < 6 ? 'eager' : 'lazy'}
+        />
+        <div class="overlay">
+          <svg class="play" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.5)"/>
+            <polygon points="24,18 46,30 24,42" fill="white"/>
+          </svg>
         </div>
-      </div>
+      </button>
     ))}
-  </section>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Sluiten">&#x2715;</button>
+    <div class="lb-content" id="lbContent"></div>
+  </div>
 </Layout>
 
+<script>
+  const grid = document.getElementById('portfolioGrid');
+  const lightbox = document.getElementById('lightbox');
+  const lbClose = document.getElementById('lbClose');
+  const lbContent = document.getElementById('lbContent');
+
+  grid?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('button[data-id]') as HTMLButtonElement | null;
+    if (!btn) return;
+    const id = btn.dataset.id;
+    if (!id) {
+      window.open('https://vimeo.com/frankdebruijn', '_blank');
+      return;
+    }
+    lbContent!.innerHTML = `<iframe src="https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+    lightbox!.classList.add('open');
+    lightbox!.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function closeLightbox() {
+    lightbox!.classList.remove('open');
+    lightbox!.setAttribute('aria-hidden', 'true');
+    lbContent!.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  lbClose?.addEventListener('click', closeLightbox);
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
 <style>
-  .hero {
-    padding: 6rem 2rem 4rem;
+  .page-title {
     text-align: center;
+    padding: 2rem 1rem 1.5rem;
   }
 
-  .hero h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
-    font-weight: 100;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #fff;
+  .page-title h1 {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.6em;
+    text-transform: lowercase;
+    color: var(--text);
   }
 
-  .hero p {
-    margin-top: 1rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .portfolio-grid {
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2px;
-    padding: 0 2px 2px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
   }
 
-  .portfolio-item {
+  .item {
+    display: block;
+    position: relative;
     aspect-ratio: 16/9;
     overflow: hidden;
     cursor: pointer;
+    background: #000;
+    border: none;
+    padding: 0;
   }
 
-  .placeholder {
+  .item img {
     width: 100%;
     height: 100%;
-    background: var(--mid);
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s, transform 0.4s;
+  }
+
+  .item:hover img {
+    opacity: 0.75;
+    transform: scale(1.03);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 
-  .portfolio-item:hover .placeholder { background: #252525; }
+  .item:hover .overlay { opacity: 1; }
 
-  .placeholder span {
-    color: var(--muted);
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  .play {
+    width: 60px;
+    height: 60px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lb-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem 0.5rem;
+    z-index: 1001;
+  }
+
+  .lb-content {
+    width: min(90vw, 1100px);
+    aspect-ratio: 16/9;
+  }
+
+  .lb-content iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+    .page-title h1 { letter-spacing: 0.4em; }
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>

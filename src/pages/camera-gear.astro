@@ -2,115 +2,307 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Camera Gear">
-  <div class="page-header">
-    <h1>Camera Gear</h1>
+  <div class="hero">
+    <img
+      src="https://static.wixstatic.com/media/015c01_c22975b109e245d0ad6720f1478ba29f~mv2.jpg/v1/fill/w_1200,h_400,q_85,enc_avif,quality_auto/015c01_c22975b109e245d0ad6720f1478ba29f~mv2.jpg"
+      alt="Camera Gear"
+      class="hero-img"
+    />
+    <div class="hero-overlay">
+      <h1>Camera Gear</h1>
+    </div>
   </div>
 
-  <div class="section">
+  <div class="content">
+    <h2 class="section-title">Camera Gear</h2>
+
     <div class="gear-list">
+
       <div class="gear-item">
-        <div class="gear-header">
-          <h2>Phantom Flex 2K</h2>
-          <span class="tag">High Speed</span>
+        <div class="gear-left gear-left--text">
+          <h3>Phantom Flex 2.5 K</h3>
         </div>
-        <p>De industriestandaard voor high-speed cinematografie. Schiet tot 2570 fps in 2K resolutie, 1456 fps in full 2K. Gebruikt door de grootste producties ter wereld voor extreme slowmotion shots.</p>
-        <ul>
-          <li>Resolutie: 2048 × 1952 px</li>
-          <li>Max framerate: 2570 fps (1080p), 1456 fps (2K)</li>
-          <li>Global shutter — geen rolling shutter artefacten</li>
-        </ul>
+        <div class="gear-right">
+          <ul>
+            <li>35mm sensor tot 2.5K resolutie. Op volledige resolutie tot 1.500 FPS</li>
+            <li>Op 1920 × 1080 resolutie maar liefst 2.500 FPS</li>
+            <li>Resolutie kan via AI ge-upscaled worden. Neem contact op voor meer informatie.</li>
+            <li>800 Iso rating op 25fps.</li>
+            <li>4:2:2 DH-SDI out</li>
+            <li>12-bit pixel depth</li>
+          </ul>
+          <p class="gear-link"><a href="https://www.phantomhighspeed.com" target="_blank" rel="noopener">Voor meer info download hier het data-sheet doc.</a></p>
+        </div>
       </div>
 
       <div class="gear-item">
-        <div class="gear-header">
-          <h2>DJI Mavic 3 Pro</h2>
-          <span class="tag">Drone</span>
+        <div class="gear-left gear-left--text">
+          <h3>DZO Film zoom PL Lens set</h3>
         </div>
-        <p>Professionele drone voor cinematografie en fotografie. Triple-camera systeem met Hasselblad-kleurscientie.</p>
-        <ul>
-          <li>4/3 CMOS Hasselblad sensor</li>
-          <li>5.1K video, Apple ProRes beschikbaar</li>
-          <li>46 minuten vluchttijd</li>
-        </ul>
+        <div class="gear-right">
+          <ul>
+            <li>DZOFilm Zoom Bundle 20-50mm + 50-125mm T2.9</li>
+            <li>Super35 Parfocal Zoom Lens</li>
+            <li>Swappable PL Mount; Canon EF Included</li>
+          </ul>
+        </div>
       </div>
 
       <div class="gear-item">
-        <div class="gear-header">
-          <h2>DJI Mavic 2 Enterprise Advanced</h2>
-          <span class="tag">Thermografie</span>
+        <div class="gear-left gear-left--text">
+          <h3>High Speed LED lampen</h3>
         </div>
-        <p>Drone met geïntegreerde thermografische camera voor inspecties vanuit de lucht.</p>
-        <ul>
-          <li>640 × 512 px radiometrische FLIR sensor</li>
-          <li>Zichtbaar licht + thermografie in één systeem</li>
-          <li>Inspectierapporten direct uit de software</li>
-        </ul>
+        <div class="gear-right">
+          <p>Speciaal voor high speed ontwikkelde LED lampen.</p>
+          <p>Gebruiken relatief weinig stroom en ruim voldoende voor kleinere sets.</p>
+        </div>
       </div>
 
       <div class="gear-item">
-        <div class="gear-header">
-          <h2>DaVinci Resolve Studio</h2>
-          <span class="tag">Post-productie</span>
+        <div class="gear-left gear-left--text">
+          <h3>Onderwaterhuis</h3>
         </div>
-        <p>Volledige post-productie in DaVinci Resolve Studio inclusief Fusion Studio voor VFX en motion graphics.</p>
+        <div class="gear-right">
+          <p>Onderwaterbehuizing voor de Flex 2.5k. Camera wordt bestuurd via laptop op de kant en focus, iris en zoom met remote follow focus. Afstand onderwaterhuis en laptop is standaard beperkt, echter per project aan te passen. Neem contact op voor meer info!</p>
+        </div>
       </div>
+
+      <div class="gear-item">
+        <div class="gear-left gear-left--text">
+          <h3>Basis set Phantom Flex</h3>
+        </div>
+        <div class="gear-right">
+          <p class="gear-sub">De basis set Phantom bestaat uit:</p>
+          <ul>
+            <li>Phantom Flex 2.5 K</li>
+            <li>DZO Zoom PL Lens set</li>
+            <li>Sachtler Flowtech tripod met Aktiv8 Touch &amp; Go Fluidhead</li>
+            <li>24" Flanders DM240 Afkijk Monitor</li>
+            <li>Shogun monitor met recording voor 4:2:2 opnames</li>
+            <li>Laptop voor aansturing camera en RAW recordings</li>
+            <li>Phantom operator</li>
+          </ul>
+          <a href="/contact" class="cta-link">Deze set boeken? Klik hier voor een prijsopgave!</a>
+        </div>
+      </div>
+
     </div>
+
+    <div class="divider"></div>
+
+    <h2 class="form-heading">Let's Work Together</h2>
+    <p class="form-sub">Get in touch so we can start working together.</p>
+
+    <form class="contact-form" name="cameragear" method="POST" data-netlify="true">
+      <div class="form-row">
+        <div class="field">
+          <label for="first">First Name</label>
+          <input type="text" id="first" name="first_name" />
+        </div>
+        <div class="field">
+          <label for="last">Last Name</label>
+          <input type="text" id="last" name="last_name" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      <button type="submit" class="btn">Send</button>
+    </form>
   </div>
 </Layout>
 
 <style>
-  .gear-list { display: flex; flex-direction: column; gap: 0; }
-
-  .gear-item {
-    padding: 3rem 0;
-    border-bottom: 1px solid #1a1a1a;
-    max-width: 700px;
+  .hero {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
   }
 
-  .gear-header {
+  .hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    justify-content: center;
   }
 
-  .gear-header h2 {
-    font-size: 1.3rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    color: var(--accent);
+  .hero-overlay h1 {
+    background: rgba(255,255,255,0.9);
+    padding: 0.75rem 2.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--text);
   }
 
-  .tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    border: 1px solid #333;
-    padding: 0.2rem 0.6rem;
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  .gear-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .gear-item {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .gear-left img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
     border-radius: 2px;
   }
 
-  .gear-item p { color: var(--muted); margin-bottom: 1rem; }
+  .gear-left--text {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 0.25rem;
+  }
 
-  .gear-item ul {
+  .gear-left--text h3,
+  .gear-title-row h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .gear-title-row {
+    margin-bottom: 0.75rem;
+  }
+
+  .gear-right ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    margin-bottom: 0.75rem;
   }
 
-  .gear-item li {
-    font-size: 0.85rem;
+  .gear-right li {
+    font-size: 0.9rem;
     color: var(--muted);
     padding-left: 1rem;
     position: relative;
   }
 
-  .gear-item li::before {
+  .gear-right li::before {
     content: '—';
     position: absolute;
     left: 0;
-    color: #333;
+    color: #bbb;
+  }
+
+  .gear-right p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .gear-sub { margin-bottom: 0.75rem; }
+  .gear-link a { font-size: 0.85rem; color: var(--active); }
+  .gear-link a:hover { text-decoration: underline; }
+
+  .cta-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--active);
+    text-decoration: underline;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  .form-heading {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-sub { color: var(--muted); margin-bottom: 2rem; }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 560px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  label { font-size: 0.85rem; color: var(--muted); }
+
+  input, textarea {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--active);
+  }
+
+  .btn {
+    align-self: flex-start;
+    background: var(--text);
+    color: var(--white);
+    border: none;
+    padding: 0.7rem 2rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn:hover { background: #000; }
+
+  @media (max-width: 768px) {
+    .hero { height: 200px; }
+    .gear-item { grid-template-columns: 1fr; gap: 1rem; }
+    .gear-left img { height: 200px; }
+    .form-row { grid-template-columns: 1fr; }
+    .content { padding: 2rem 1rem 3rem; }
   }
 </style>

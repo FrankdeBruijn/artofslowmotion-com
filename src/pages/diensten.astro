@@ -2,84 +2,164 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Diensten">
-  <div class="page-header">
+  <div class="content">
     <h1>Diensten</h1>
-  </div>
 
-  <div class="section">
-    <div class="services">
-      <div class="service">
-        <span class="num">01</span>
-        <div>
-          <h2>High Speed Camera</h2>
-          <p>Phantom Flex 2K operator voor film, TV en commercial. Op set inzetbaar voor shots tot 2570 fps. Eigen apparatuur beschikbaar.</p>
-        </div>
-      </div>
-      <div class="service">
-        <span class="num">02</span>
-        <div>
-          <h2>Qtake Operator & DIT</h2>
-          <p>VTR en data management op set. Snelle en flexibele inzet met eigen Qtake-setup. Ondersteuning voor grote producties.</p>
-        </div>
-      </div>
-      <div class="service">
-        <span class="num">03</span>
-        <div>
-          <h2>Video Editing & Color Grading</h2>
-          <p>Post-productie in DaVinci Resolve Studio en Fusion Studio. Van ruwe beelden naar afgewerkt eindproduct.</p>
-        </div>
-      </div>
-      <div class="service">
-        <span class="num">04</span>
-        <div>
-          <h2>Drone Piloot</h2>
-          <p>Licenties A1-A3, A2 en SPECIFIC. DJI Mavic 3 uitgerust. Samenwerking met Drone Solutions voor complexe opdrachten. FPV, kartering en beveiliging.</p>
-        </div>
-      </div>
+    <div class="body-text">
+      <p>
+        Buiten high speed operator ben ik op set inzetbaar als <strong>Qtake operator</strong> (VTR) en DIT (Data).
+        Door te werken met een eigen set ben ik snel en flexibel inzetbaar.
+      </p>
+
+      <p>
+        Daarnaast een ruime ervaring in Editing en Color Grading. Hiervoor beschik ik over een
+        <strong>editsuite</strong> van <strong>Davinci Resolve</strong> waarbij voor animaties Fusion Studio wordt gebruikt.
+      </p>
+
+      <p>
+        Tevens beschik ik over een DJI Mavic 3 met A1-A3 &amp; A2 en SPECIFIC licentie.
+        Omdat het vliegen binnen specific (bijvoorbeeld rondom luchthavens, steden, industrie en dergelijke)
+        een 2mans team vereist, werk ik met drone opdrachten altijd samen met <strong>Rob Rovers</strong> van
+        <a href="https://www.dronesolutions.nl" target="_blank" rel="noopener">Drone Solutions</a>.
+        Door deze samenwerking kan ik ook FPV, mapping / surveys en beveiliging met een drone in a box aanbieden!
+      </p>
+
+      <p>
+        Meer weten over de mogelijkheden? Vul dan
+        <a href="/contact">dit formulier</a> in en ik neem zo snel mogelijk contact met je op!
+        Of bel me op <a href="tel:+31612415418">06 12415418</a>! Tot snel
+      </p>
     </div>
 
-    <a href="/contact" class="cta">Neem contact op &rarr;</a>
+    <div class="divider"></div>
+
+    <h2 class="form-heading">Start de samenwerking!</h2>
+    <p class="form-sub">Een project samen oppakken, vul dan onderstaand formulier in en ik neem contact op met je.</p>
+
+    <form class="contact-form" name="diensten" method="POST" data-netlify="true">
+      <div class="form-row">
+        <div class="field">
+          <label for="voornaam">Voornaam</label>
+          <input type="text" id="voornaam" name="voornaam" />
+        </div>
+        <div class="field">
+          <label for="achternaam">Achternaam</label>
+          <input type="text" id="achternaam" name="achternaam" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+      </div>
+      <div class="field">
+        <label for="telefoon">Telefoon</label>
+        <input type="tel" id="telefoon" name="telefoon" />
+      </div>
+      <button type="submit" class="btn">verstuur</button>
+    </form>
   </div>
 </Layout>
 
 <style>
-  .services { display: flex; flex-direction: column; gap: 0; }
-
-  .service {
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
-    padding: 3rem 0;
-    border-bottom: 1px solid #1a1a1a;
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
   }
 
-  .num {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: var(--text);
+  }
+
+  .body-text p {
     color: var(--muted);
-    padding-top: 0.4rem;
-    min-width: 30px;
+    margin-bottom: 1.25rem;
+    max-width: 680px;
   }
 
-  .service h2 {
+  .body-text a { color: var(--active); }
+  .body-text a:hover { text-decoration: underline; }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  .form-heading {
     font-size: 1.4rem;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
   }
 
-  .service p { color: var(--muted); max-width: 600px; }
-
-  .cta {
-    display: inline-block;
-    margin-top: 3rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+  .form-sub {
     color: var(--muted);
-    transition: color 0.2s;
+    margin-bottom: 2rem;
   }
 
-  .cta:hover { color: var(--accent); }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 560px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  label {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  input {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--active);
+  }
+
+  .btn {
+    align-self: flex-start;
+    background: var(--text);
+    color: var(--white);
+    border: none;
+    padding: 0.7rem 2rem;
+    font-size: 0.85rem;
+    font-family: inherit;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s;
+  }
+
+  .btn:hover { background: #000; }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .content { padding: 2rem 1rem 3rem; }
+  }
 </style>
