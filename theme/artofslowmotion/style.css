@@ -1,0 +1,421 @@
+/*
+Theme Name: Art of Slowmotion
+Theme URI: https://artofslowmotion.com
+Author: Frank de Bruijn
+Description: Blokthema voor Art of Slowmotion — portfolio van Frank de Bruijn, Phantom-operator en high speed cinematograaf. Child-thema van Twenty Twenty-Five.
+Version: 1.0
+Requires at least: 6.5
+Tested up to: 7.0
+Requires PHP: 8.0
+License: GPL-2.0-or-later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: artofslowmotion
+Template: twentytwentyfive
+*/
+
+/* Basis die theme.json niet dekt. Alles wat wél via theme.json kan, staat daar. */
+
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+	text-wrap: balance;
+}
+
+p {
+	text-wrap: pretty;
+}
+
+/* Zichtbare focus voor toetsenbordgebruik. */
+:where(a, button, input, textarea, summary):focus-visible {
+	outline: 3px solid var(--wp--preset--color--actief);
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* ---- Navigatie: actieve link in teal, zoals op de oude site ---- */
+/* Extra specificiteit nodig: WordPress' eigen navigatie-CSS zet
+   `.wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content{color:inherit}`
+   neer, en die verdubbelde klasse plus voorouder wint anders van een
+   gewone klasse-op-klasse-selector. */
+.wp-block-navigation .wp-block-navigation-item.current-menu-item > .wp-block-navigation-item__content,
+.wp-block-navigation .wp-block-navigation-item__content.is-huidige-pagina {
+	color: var(--wp--preset--color--actief);
+}
+
+.wp-block-navigation .wp-block-navigation-item__content:hover {
+	color: var(--wp--preset--color--actief);
+	text-decoration: none;
+}
+
+/* ---- Header: sticky, logo links, nav rechts, 80px hoog ---- */
+
+.aos-header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	border-bottom: 1px solid var(--wp--preset--color--lijn);
+	padding: 0 !important;
+}
+
+.aos-header-inner {
+	width: 100%;
+	max-width: 75rem;
+	margin: 0 auto;
+	padding: 0 2rem;
+	min-height: 80px;
+}
+
+.aos-logo-link {
+	display: flex;
+	align-items: center;
+}
+
+.aos-logo {
+	height: 55px;
+	width: auto;
+}
+
+@media (max-width: 768px) {
+	.aos-header-inner {
+		padding: 0.75rem 1rem;
+	}
+	.aos-logo {
+		height: 42px;
+	}
+}
+
+/* Uitgeklapt mobiel menu: links uitlijnen in plaats van tegen de rechterrand
+   (dat laatste is prima voor de desktopbalk, maar in de gestapelde
+   mobiel-weergave bepaalt juist `align-items` op de buitenste flex-column
+   de horizontale positie, niet `justify-content` op de binnenste rij). */
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	align-items: flex-start !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+	padding: 0.75rem 0 !important;
+}
+
+/* ---- Footer ---- */
+
+.aos-footer {
+	padding: 1.5rem 2rem !important;
+}
+
+.aos-footer-inner {
+	width: 100%;
+	gap: 0.75rem !important;
+}
+
+.aos-footer-contact a {
+	color: inherit;
+}
+
+.aos-footer-contact a:hover {
+	color: var(--wp--preset--color--tekst);
+}
+
+/* ---- Portfolio-grid met lightbox (front-page) ---- */
+
+.aos-portfolio-titel {
+	text-align: center;
+	padding: 2rem 1rem 1.5rem;
+}
+
+.aos-portfolio-titel h1 {
+	font-size: 1rem;
+	font-weight: 400;
+	letter-spacing: 0.6em;
+	text-transform: lowercase;
+	margin: 0;
+}
+
+.aos-portfolio-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0;
+}
+
+.aos-portfolio-item {
+	display: block;
+	position: relative;
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+	cursor: pointer;
+	background: #000;
+	border: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+.aos-portfolio-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: opacity 0.3s, transform 0.4s;
+}
+
+.aos-portfolio-item:hover img {
+	opacity: 0.75;
+	transform: scale(1.03);
+}
+
+.aos-portfolio-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.aos-portfolio-item:hover .aos-portfolio-overlay {
+	opacity: 1;
+}
+
+.aos-portfolio-overlay svg {
+	width: 60px;
+	height: 60px;
+	filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+}
+
+.aos-lightbox {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.9);
+	z-index: 1000;
+	align-items: center;
+	justify-content: center;
+}
+
+.aos-lightbox.is-open {
+	display: flex;
+}
+
+.aos-lightbox-close {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 1.8rem;
+	cursor: pointer;
+	line-height: 1;
+	padding: 0.25rem 0.5rem;
+	z-index: 1001;
+}
+
+.aos-lightbox-content {
+	width: min(90vw, 1100px);
+	aspect-ratio: 16 / 9;
+}
+
+.aos-lightbox-content iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+@media (max-width: 768px) {
+	.aos-portfolio-grid {
+		grid-template-columns: 1fr;
+	}
+	.aos-portfolio-titel h1 {
+		letter-spacing: 0.4em;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.aos-portfolio-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* ---- Camera Gear: hero met titel over foto ---- */
+
+.aos-hero {
+	position: relative;
+	height: 320px;
+	overflow: hidden;
+	margin: 0;
+}
+
+.aos-hero img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+.aos-hero-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.aos-hero-overlay h1 {
+	background: rgba(255, 255, 255, 0.9);
+	padding: 0.75rem 2.5rem;
+	margin: 0;
+	font-weight: 400;
+}
+
+@media (max-width: 768px) {
+	.aos-hero {
+		height: 200px;
+	}
+}
+
+/* ---- Camera Gear: uitrusting-items ---- */
+
+.aos-gear-item {
+	display: grid;
+	grid-template-columns: 240px 1fr;
+	gap: 2rem;
+	padding: 2.5rem 0;
+	border-bottom: 1px solid var(--wp--preset--color--lijn);
+}
+
+.aos-gear-item h3 {
+	margin: 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+
+.aos-gear-item ul {
+	list-style: none;
+	margin: 0 0 0.75rem;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.aos-gear-item li {
+	font-size: 0.9rem;
+	color: var(--wp--preset--color--gedempt);
+	padding-left: 1rem;
+	position: relative;
+}
+
+.aos-gear-item li::before {
+	content: '—';
+	position: absolute;
+	left: 0;
+	color: #bbb;
+}
+
+.aos-gear-item p {
+	font-size: 0.9rem;
+	color: var(--wp--preset--color--gedempt);
+	margin: 0 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+	.aos-gear-item {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+}
+
+/* ---- Formulieren ---- */
+
+.aos-formulier {
+	max-width: 40rem;
+}
+
+.aos-formulier label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.35rem;
+}
+
+.aos-formulier input[type="text"],
+.aos-formulier input[type="tel"],
+.aos-formulier input[type="email"],
+.aos-formulier input[type="date"],
+.aos-formulier textarea {
+	width: 100%;
+	padding: 0.7rem 0.8rem;
+	font: inherit;
+	color: var(--wp--preset--color--tekst);
+	background: var(--wp--preset--color--wit);
+	border: 1px solid #9ba1ac;
+	border-radius: 2px;
+}
+
+.aos-formulier input:focus-visible,
+.aos-formulier textarea:focus-visible {
+	border-color: var(--wp--preset--color--actief);
+}
+
+.aos-rij {
+	display: grid;
+	gap: 0 1.25rem;
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 40rem) {
+	.aos-rij {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+.aos-formulier fieldset {
+	border: 1px solid var(--wp--preset--color--lijn);
+	border-radius: 2px;
+	padding: 1rem 1.25rem 1.25rem;
+	margin: 1.5rem 0;
+}
+
+.aos-formulier legend {
+	font-weight: 600;
+	padding: 0 0.4rem;
+}
+
+.aos-keuze {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	font-weight: 400;
+	margin-bottom: 0.5rem;
+}
+
+.aos-vangveld {
+	position: absolute;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.aos-melding {
+	padding: 1rem 1.25rem;
+	border-radius: 2px;
+	border-left: 4px solid;
+	margin-bottom: 1.5rem;
+}
+
+.aos-melding--goed {
+	background: #f0f7f2;
+	border-left-color: #2c7a4b;
+}
+
+.aos-melding--fout {
+	background: #fdf2ee;
+	border-left-color: var(--wp--preset--color--actief);
+}
+
+.aos-melding p {
+	margin: 0;
+}

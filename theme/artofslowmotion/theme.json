@@ -1,0 +1,147 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "46rem",
+			"wideSize": "75rem"
+		},
+		"color": {
+			"custom": false,
+			"customGradient": false,
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"palette": [
+				{ "slug": "wit", "color": "#ffffff", "name": "Wit" },
+				{ "slug": "achtergrond", "color": "#f9f8f8", "name": "Achtergrond" },
+				{ "slug": "lijn", "color": "#e0e0e0", "name": "Lijn" },
+				{ "slug": "tekst", "color": "#333333", "name": "Tekst" },
+				{ "slug": "gedempt", "color": "#666666", "name": "Gedempt" },
+				{ "slug": "actief", "color": "#00a4b8", "name": "Actief (teal)" }
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"fluid": true,
+			"fontFamilies": [
+				{
+					"slug": "open-sans",
+					"name": "Open Sans",
+					"fontFamily": "'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif"
+				}
+			],
+			"fontSizes": [
+				{ "slug": "klein", "name": "Klein", "size": "0.85rem", "fluid": false },
+				{ "slug": "normaal", "name": "Normaal", "size": "1rem", "fluid": false },
+				{ "slug": "groot", "name": "Groot", "size": "1.1rem", "fluid": { "min": "1.05rem", "max": "1.1rem" } },
+				{ "slug": "kop", "name": "Kop", "size": "1.5rem", "fluid": { "min": "1.3rem", "max": "1.5rem" } },
+				{ "slug": "titel", "name": "Titel", "size": "2.8rem", "fluid": { "min": "1.8rem", "max": "2.8rem" } }
+			]
+		},
+		"spacing": {
+			"customSpacingSize": false,
+			"units": [ "px", "rem", "%", "vw" ],
+			"spacingSizes": [
+				{ "slug": "20", "name": "Klein", "size": "1rem" },
+				{ "slug": "30", "name": "Normaal", "size": "1.75rem" },
+				{ "slug": "40", "name": "Ruim", "size": "2.25rem" },
+				{ "slug": "50", "name": "Sectie", "size": "clamp(2.5rem, 5vw, 3.75rem)" },
+				{ "slug": "60", "name": "Sectie groot", "size": "clamp(3.25rem, 7vw, 5rem)" }
+			]
+		},
+		"useRootPaddingAwareAlignments": true
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--wit)",
+			"text": "var(--wp--preset--color--tekst)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--open-sans)",
+			"fontSize": "var(--wp--preset--font-size--normaal)",
+			"fontWeight": "400",
+			"lineHeight": "1.6"
+		},
+		"spacing": {
+			"padding": {
+				"left": "0",
+				"right": "0"
+			},
+			"blockGap": "var(--wp--preset--spacing--30)"
+		},
+		"elements": {
+			"link": {
+				"color": { "text": "var(--wp--preset--color--actief)" },
+				"typography": { "textDecoration": "none" },
+				":hover": {
+					"typography": { "textDecoration": "underline" }
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontWeight": "700",
+					"lineHeight": "1.25"
+				}
+			},
+			"h1": {
+				"typography": { "fontSize": "var(--wp--preset--font-size--titel)", "fontWeight": "400" }
+			},
+			"h2": {
+				"typography": { "fontSize": "var(--wp--preset--font-size--kop)" }
+			},
+			"h3": {
+				"typography": { "fontSize": "var(--wp--preset--font-size--groot)" }
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--tekst)",
+					"text": "var(--wp--preset--color--wit)"
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--klein)",
+					"fontWeight": "700",
+					"textDecoration": "none"
+				},
+				"spacing": {
+					"padding": {
+						"top": "0.7rem",
+						"bottom": "0.7rem",
+						"left": "2rem",
+						"right": "2rem"
+					}
+				},
+				"border": { "radius": "2px" },
+				":hover": {
+					"color": {
+						"background": "#000000",
+						"text": "var(--wp--preset--color--wit)"
+					}
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--normaal)",
+					"fontWeight": "700",
+					"textDecoration": "none"
+				}
+			},
+			"core/navigation": {
+				"color": {
+					"text": "var(--wp--preset--color--tekst)"
+				},
+				"typography": {
+					"fontSize": "0.9rem",
+					"fontWeight": "700",
+					"textDecoration": "none"
+				}
+			}
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "Kop", "area": "header" },
+		{ "name": "footer", "title": "Voet", "area": "footer" }
+	]
+}
