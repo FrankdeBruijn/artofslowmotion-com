@@ -120,12 +120,15 @@ Raakt geen andere subsite (frankdebruijn.com/site 1, rooyeplas/site 3, warmtesca
 
 ## Openstaande punten
 
-1. **Vimeo-embed-privacy nog niet aangepast.** De 12 portfolio-video's zijn co-credited
-   klantwerk met Jorrit Stollman (vimeo.com/jorritstollman); de embeds geven momenteel een
-   403 omdat het Vimeo-abonnement is afgeschaald en domeinbeperkt embedden is vervallen.
-   De grid gebruikt de juiste video-ID's en gaat vanzelf werken zodra Frank (met eigen
-   toestemming, zo nodig via Jorrits account) de embed-privacy per video openzet voor dit
-   domein. Buiten scope van dit thema-werk.
+1. **Vimeo-embeds omgezet naar YouTube (2026-08-27), live en gecommit.** Site geeft geen
+   403 meer. 4 van de 12 zijn teruggevonden op @GEWOONFILM (Whiskey, The Alchemy of
+   Chocolate, Lamar Whipping Cream, Sligro ZIN). De overige 8 (Hoffmann Getranke, Welcher
+   Joghurt ×2, Guylian, The Magician–Joyce, Quaker CruesLi, Lamar CookingCream, SHAKLEE)
+   staan niet als afgewerkte film op dat kanaal — alleen 5-18 uur durende ruwe
+   livestream-opnames van de sets (bevestigd door metadata te checken, geen bruikbare
+   match). Die tonen nu "binnenkort" i.p.v. een kapotte embed. Om ze alsnog te vullen:
+   ofwel Jorrit Stollman vragen de embed-privacy op zijn Vimeo-account open te zetten voor
+   dit domein, ofwel de afgewerkte bestanden zelf uploaden als Frank ze ergens heeft staan.
 2. **Camera Gear-hero is nog de tijdelijke drone-luchtfoto**, niet de kliffen/water-foto
    van de live Wix-site — al een bekend open punt in de Astro-bronversie, hier gewoon
    overgenomen.
