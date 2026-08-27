@@ -18,8 +18,13 @@
  *
  * Update 2026-08-27 (later): de overige 7 afgewerkte exports teruggevonden op
  * Data 4, map "Vimeo Films download/", en als unlisted geüpload naar
- * @GEWOONFILM. "Welcher Joghurt 2" blijft null — daarvan bestaat maar één
- * afgewerkt bestand, geen tweede versie gevonden.
+ * @GEWOONFILM.
+ *
+ * Update 2026-08-27 (nog later): "Welcher Joghurt 2" bleek zelf een dubbeling
+ * van "Welcher Joghurt" (zelfde 20 sec. commercial, alleen andere export/
+ * bitrate — gecheckt over alle schijven incl. NAS en iCloud, geen aparte
+ * tweede film gevonden). Vervangen door Coolbest by Jorrit Stollman &
+ * Lukkien, al openbaar op @GEWOONFILM, geen nieuwe upload nodig.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -38,7 +43,7 @@ function aos_portfolio_videos(): array {
 		array( 'youtube' => '7sNKoxblpSE', 'thumb' => 'portfolio-07.jpg', 'title' => 'The Art of Chocolate by Jorrit Stollman' ),
 		array( 'youtube' => 'ehRJ8wbT9YE', 'thumb' => 'portfolio-08.jpg', 'title' => 'Lamar CookingCream by Jorrit Stollman' ),
 		array( 'youtube' => '-3x8iEpNkQA', 'thumb' => 'portfolio-09.jpg', 'title' => 'SHAKLEE by Jorrit Stollman' ),
-		array( 'youtube' => null, 'thumb' => 'portfolio-10.jpg', 'title' => 'Welcher Joghurt 2 by Jorrit Stollman' ),
+		array( 'youtube' => 'ydkLXiuxD58', 'thumb' => 'portfolio-10.jpg', 'title' => 'Coolbest by Jorrit Stollman & Lukkien' ),
 		array( 'youtube' => '-32vaHXH6Ww', 'thumb' => 'portfolio-11.jpg', 'title' => 'Lamar WhippingCream by Jorrit Stollman' ),
 		array( 'youtube' => 'Pzgb5IYAguk', 'thumb' => 'portfolio-12.jpg', 'title' => 'Sligro ZIN by Jorrit Stollman' ),
 	);
