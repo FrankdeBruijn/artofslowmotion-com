@@ -129,9 +129,16 @@ Raakt geen andere subsite (frankdebruijn.com/site 1, rooyeplas/site 3, warmtesca
 2. **Camera Gear-hero is nog de tijdelijke drone-luchtfoto**, niet de kliffen/water-foto
    van de live Wix-site — al een bekend open punt in de Astro-bronversie, hier gewoon
    overgenomen.
-3. **Domein artofslowmotion.com nog niet gekoppeld.** Staat nog bij Wix; domeinkoppeling
-   en Wix-opzegging zijn een aparte, latere stap (DNS, `wp option update siteurl/home`,
-   `wp search-replace`) — niet aangeraakt in dit werk.
+3. ~~Domein artofslowmotion.com nog niet gekoppeld.~~ **Inmiddels wél gekoppeld** (geverifieerd
+   2026-08-27, buiten deze sessie om gedaan — deze notitie liep achter). Nameservers staan op
+   Cloudflare, `https://artofslowmotion.com/` serveert nu rechtstreeks deze WordPress-subsite
+   (title-tag, `aos-portfolio`-markup en `wp-json`-link kloppen), en
+   `https://orangestock.com/artofslowmotion/` geeft inmiddels 404 — de siteurl/home staan dus
+   op het eigen domein. `robots.txt` staat op `Allow: /`, dus `blog_public` lijkt ook al naar
+   `1` gezet (zie ook de tabel hierboven, die nog `0` toont — verifiëren met
+   `wp option get blog_public --url=https://artofslowmotion.com`). Nog wel na te lopen vóór
+   Wix wordt opgezegd: media/formulier-inzendingen in het Wix-account exporteren (zie
+   `wix-eruit/04-openstaand.md`) — dat kan alleen Frank, via het Wix-paneel.
 4. Novamira staat niet actief op deze subsite. Als een volgende sessie er via de MCP-server
    aan verder moet, eerst de plugin activeren en netwerkbreed beschikbaar maken (zie
    orangestock/CLAUDE.md, sectie Novamira), en na de bouwfase weer deactiveren.

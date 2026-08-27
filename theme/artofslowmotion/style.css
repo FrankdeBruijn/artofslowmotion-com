@@ -185,6 +185,30 @@ p {
 	filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
 }
 
+/* Video nog niet op YouTube gevonden — duidelijk anders dan een werkende tegel */
+.aos-portfolio-item--todo {
+	cursor: default;
+}
+
+.aos-portfolio-item--todo img {
+	filter: grayscale(70%);
+	opacity: 0.6;
+}
+
+.aos-portfolio-item--todo:hover img {
+	transform: none;
+	opacity: 0.6;
+}
+
+.aos-portfolio-overlay--todo {
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.55);
+	color: #fff;
+	font-size: 0.8rem;
+	letter-spacing: 0.2em;
+	text-transform: lowercase;
+}
+
 .aos-lightbox {
 	display: none;
 	position: fixed;
@@ -402,18 +426,18 @@ p {
 .aos-melding {
 	padding: 1rem 1.25rem;
 	border-radius: 2px;
-	border-left: 4px solid;
+	border: 1px solid;
 	margin-bottom: 1.5rem;
 }
 
 .aos-melding--goed {
 	background: #f0f7f2;
-	border-left-color: #2c7a4b;
+	border-color: #cde3d4;
 }
 
 .aos-melding--fout {
 	background: #fdf2ee;
-	border-left-color: var(--wp--preset--color--actief);
+	border-color: #f3d6cc;
 }
 
 .aos-melding p {
