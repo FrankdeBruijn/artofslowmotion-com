@@ -4,7 +4,7 @@
  *
  * Vervangt de Netlify Forms (`data-netlify="true"`) van de oude Astro-site: die
  * dienst is hier niet beschikbaar. In plaats daarvan: native `wp_mail()` naar
- * frank@artofslowmotion.com, zelfde patroon als warmtescan.nu
+ * frankdebruijn@me.com, zelfde patroon als warmtescan.nu
  * (inc/formulier.php in dat thema). Spam wordt tegengehouden zonder captcha:
  * een verborgen veld dat een mens nooit invult, plus een minimale invultijd.
  *
@@ -17,7 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const AOS_FORMULIER_EMAIL = 'frank@artofslowmotion.com';
+// Niet frank@artofslowmotion.com: dat mailpakket is per 2026-10 opgezegd.
+const AOS_FORMULIER_EMAIL = 'frankdebruijn@me.com';
 
 /** Welke phantom-sets aan te vinken zijn op het contactformulier. */
 function aos_camera_sets(): array {
