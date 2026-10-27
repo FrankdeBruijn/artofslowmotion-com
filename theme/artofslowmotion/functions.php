@@ -3,7 +3,7 @@
  * Art of Slowmotion-thema.
  *
  * Child-thema van Twenty Twenty-Five. Bewust klein gehouden: het meeste zit
- * in theme.json. Hier staat de portfolio-shortcode, de drie formulieren en
+ * in theme.json. Hier staat de portfolio-shortcode, de formulier-shortcode en
  * wat theme.json niet dekt.
  */
 

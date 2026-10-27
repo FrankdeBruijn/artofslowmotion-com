@@ -37,7 +37,7 @@ Logo: /public/logo.jpg (gedownload van Wix CDN)
 ## Contactgegevens (voor in de site)
 - Telefoon: +31 (0)6 12 41 54 18
 - E-mail: geen meer. Het mailpakket van artofslowmotion.com is per 2026-10 opgezegd;
-  de formulieren mailen naar frankdebruijn@me.com en de footer linkt naar `/contact/`
+  de formulieren zijn weg (de shortcode toont een telefoonregel) en de footer linkt naar `/contact/`
 - Social: Vimeo, Instagram (@frankdebruijnfilmmaker), Facebook, LinkedIn
 
 ## Openstaande punten
